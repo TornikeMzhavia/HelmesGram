@@ -1,7 +1,6 @@
 import time
 import sys
 
-
 def get_anagrams_b(file_dir, input_word):
     input_word_b = input_word.lower().encode('utf-8')
     input_word_len = len(input_word) + 2
@@ -12,16 +11,10 @@ def get_anagrams_b(file_dir, input_word):
                 yield word.decode('utf-8').rstrip()
 
 
-#@profile
-def work(file_dir, input_word):
-    return ','.join(get_anagrams_b(file_dir, input_word))
-
-
 if __name__ == '__main__':
     start_time = time.time()
 
-    result = work(sys.argv[1], sys.argv[2])
+    result = ','.join(get_anagrams_b(sys.argv[1], sys.argv[2]))
 
-    end_time = time.time()
-       
-    print(','.join((str((end_time - start_time)*10**6), result)))
+    end_time = time.time()       
+    print('{},{}'.format((end_time - start_time)*10**6, result))
