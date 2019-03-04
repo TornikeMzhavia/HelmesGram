@@ -8,7 +8,7 @@ def get_anagrams_b(file_dir, input_word):
     with open(file_dir, 'rb') as f:
         for word in f:
             if len(word) == input_word_len and sorted(word[:-2].lower()) == input_word_sorted:
-                yield word.decode('utf-8').rstrip()
+                yield word.decode('utf-8', 'ignore').rstrip()
 
 
 if __name__ == '__main__':
